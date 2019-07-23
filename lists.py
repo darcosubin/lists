@@ -66,12 +66,55 @@ def cube(x):
 print "Cubes of numbers between 1-30", map(cube, range(1,30))#it will give a map of the cubes between those elemnents
 
 seq =range(8)
+seqv=(range(2,24,3))
 def add(x,y):
     return x+y
-print map(add,seq,seq) #no ideea
+print map(add,seq,seqv) #it will make this 1st element from seq + 1st element of seqv and so on
 
 def sum(seq):
     def add(x,y): return x+y
     return reduce(add,seq,0)
 print sum(range(1,11))  #Makes n*n+1/2 sum
 print sum ([])
+
+print
+print "-" *10,"LIST COMPREHENSIONS", "-"*10
+print
+
+squares=[]
+for x in range(10):
+    squares.append(x**2) #squares of the range of numbers
+print "Squares are: ", squares
+#square=[x**2 for x in range(10)]
+#print square
+
+print "Combs: ", [(x,y) for x in[1,2,3] for y in[3,1,4]if x!=y]
+
+combs=[]
+for x in[1,2,3]:
+    for y in[3,1,4]:
+        if x!=y:
+            combs.append((x,y))
+print "Combs: ", combs
+
+from math import pi 
+print "Pi rounded: ", [str(round(pi,i)) for i in range(1,6)] #it will give the round number
+
+matrix=[
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12],
+]
+print "Matrix: ", matrix
+
+print "Transposed: ", [[row[i] for row in matrix] for i in range(4)]
+transposed=[]
+for i in range(4):
+    transposed.append([row[i] for row in matrix])
+print "Transposed: ", transposed
+
+print "Transposed: ", zip(*matrix)
+
+tel={'jack':4098,'sape':4139}
+tel['guido']=4127
+print tel
